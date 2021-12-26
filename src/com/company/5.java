@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-        char[] separators = {' ', '.',',','-',':'};
         Scanner in = new Scanner(System.in);
         System.out.println("Введите строку.");
         String line = in.nextLine();
