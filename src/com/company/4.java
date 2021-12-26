@@ -3,17 +3,26 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    static int minIterative(int[] myArray, int min) {
-        min = myArray[0];
+    static int minIterative(int[] myArray) {
+        int min = myArray[0];
         for (int i = 1; i < myArray.length; i++) {
             if (myArray[i] < min) {
-                min = i + 1;
+                min = i+1;
             }
         }
         return min;
     }
-
-    static int FindSpace(String[] Array) {
+    static int FindSpaceStr(String[] Array){
+        int [] count = new int[Array.length];
+        for (int i = 0; i < Array.length; i++){
+            while (Array[i].lastIndexOf(' ') != -1){
+                count[i]++;
+                Array[i] = Array[i].substring(Array[i].indexOf(' ')+1,Array[i].length());
+            }
+        }
+        return minIterative(count);
+    }
+    static int FindSpaceArr(String[] Array) {
         int[] count = new int[Array.length];
         for (int i = 0; i < Array.length; i++) {
             char[] mas = Array[i].toCharArray();
@@ -23,7 +32,7 @@ public class Main {
                 }
             }
         }
-        return minIterative(count, 0);
+        return minIterative(count);
     }
 
     public static void main(String[] args) {
@@ -38,18 +47,22 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             System.out.println(i + 1 + ". " + array[i]);
         }
-        System.out.println("Строка, содержащая наименьшее количество пробелов: " + FindSpace(array));
-        System.out.println("Строки в которых есть слова оканчивающиеся на '.com': ");
+        System.out.println("Строки в которых есть слова оканчивающееся на '.com': ");
         for (String element : array) {
+            int j = 1;
             if (element.indexOf(".com") != -1) {
                 if (element.length() == element.indexOf(".com")+4) {
-                    System.out.println(" " + element);
+                    System.out.println((j)+ ". " + element);
+                    j++;
                 } else {
                     if (!Character.isLetter(element.charAt(element.indexOf(".com") + 4))) {
-                        System.out.println(" " + element);
+                        System.out.println((j)+ ". " + element);
+                        j++;
                     }
                 }
             }
         }
+        System.out.println("Строка, содержащая наименьшее количество пробелов (с помощью массива символов): " + FindSpaceArr(array));
+        System.out.println("Строка, содержащая наименьшее количество пробелов (с помощью методов String): " + FindSpaceStr(array));
     }
 }
