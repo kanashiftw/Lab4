@@ -10,7 +10,8 @@ public class Main {
         boolean check = false;
         System.out.println("Введите строку.");
         Scanner in = new Scanner(System.in);
-        String line = in.next();
+        String line = in.nextLine();
+        System.out.println(line);
         String line2;
         line2 = line.replace("-", " ");
         line2 = line2.replace(":", " ");
@@ -20,19 +21,19 @@ public class Main {
             check = false;
             str = str.replace(" ","");
             char[] qwe = str.toCharArray();
-            if (!Character.isLetter(qwe[1])) {
+            if (!Character.isLetter(qwe[0])) {
                 check = true;
-            } else {
-                for (int i = 0; i < str.length(); i++) {
-                    if (!Character.isLetter(qwe[i]) && !Character.isDigit(qwe[i])) {
-                        check = true;
-                    }
-                }
             }
+            for (int i = 1; i < str.length(); i++) {
+                if (!Character.isLetter(qwe[i]) & !Character.isDigit(qwe[i])) {
+                    check = true;
+                 }
+                }
             if (check){
                 line = line.replace(str,"");
             }
-        }
-        System.out.println(line);
+            }
+           System.out.println(line);
+        //String
     }
 }
