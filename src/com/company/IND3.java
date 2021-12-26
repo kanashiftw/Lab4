@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Введите строку, содержащую подстроку вида - 23:59:59.");
         Scanner in = new Scanner(System.in);
-        String line = in.next();
+        String line = in.nextLine();
 	    Pattern pattern = Pattern.compile("([0-2]{1}[0-9]{1})(:)([0-5]{1}[0-9]{1})(:)([0-5]{1}[0-9]{1})");
         Matcher matcher = pattern.matcher(line);
         if (matcher.find()){
