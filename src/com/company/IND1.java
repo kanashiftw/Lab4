@@ -13,7 +13,7 @@ public class Main {
             in.next();
         }
         key = in.nextInt();
-        String str = in.next();
+        String str = in.nextLine();
         System.out.println(str);
         System.out.println(Vernam(str, key));
     }
