@@ -11,7 +11,7 @@ public class Main {
         String line = in.nextLine();
         //С помощью регулярных выражений
         System.out.println("С помощью регулярных выражений:");
-        Pattern pattern = Pattern.compile("([A-Z]{1})([a-z]*)([0-9]{2})");
+        Pattern pattern = Pattern.compile("(\\b[A-Z]{1})([a-z]*)([0-9]{2})");
         Matcher matcher = pattern.matcher(line);
         while (matcher.find()) {
             System.out.println(line.substring(matcher.start(), matcher.end()));
